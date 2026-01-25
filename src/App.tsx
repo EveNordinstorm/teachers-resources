@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { motion } from "motion/react";
+import { Button } from "@/components/ui/button";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,9 @@ function App() {
       >
         Vite + React
       </motion.h1>
+      <Button variant="outline" className="mt-3">
+        Outline
+      </Button>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
