@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme {
   --color-core-blue: #183b4e;
 
@@ -27,7 +25,48 @@
   --color-pastel-gray: #f2f4f6;
 }
 
-@theme inline {
+@font-face {
+  font-family: "LDN Kono BDA";
+  src: url("/src/assets/fonts/LDNKonoBDA-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LDN Kono BDA";
+  src: url("/src/assets/fonts/LDNKonoBDA-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LDN Kono BDA";
+  src: url("/src/assets/fonts/LDNKonoBDA-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LDN Kono BDA";
+  src: url("/src/assets/fonts/LDNKonoBDA-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    font-family: "LDN Kono BDA", "Century Gothic", sans-serif, system-ui;
+    font-weight: 500;
+  }
+}
+
+/* @custom-variant dark (&:is(.dark *)); */
+
+/* @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -144,4 +183,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
