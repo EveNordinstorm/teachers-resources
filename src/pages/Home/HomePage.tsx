@@ -4,19 +4,8 @@ import HomeTabs from "./Components/tabs";
 export default function HomePage() {
   return (
     <div>
-      <div className="flex flex-col sm:flex-row justify-between mb-10">
-        <img
-          className="
-          w-32
-          lg:w-52
-          order-1 sm:order-2
-          self-end sm:self-auto
-        "
-          src={logo}
-          alt="Logo"
-        />
-
-        <div className="pt-6 order-2 sm:order-1">
+      <div className="flex flex-col md:flex-row md:justify-between mb-10">
+        <div className="pt-6 order-2 md:order-1">
           <h1 className="font-bold text-core-blue text-xl md:text-3xl lg:text-4xl mb-3">
             Teachers Resources
           </h1>
@@ -25,6 +14,12 @@ export default function HomePage() {
             Further Education/Higher Education.
           </p>
         </div>
+
+        <img
+          className="w-32 lg:w-52 self-end order-1 md:order-2"
+          src={logo}
+          alt="Logo"
+        />
       </div>
 
       <HomeTabs />
