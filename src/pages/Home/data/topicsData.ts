@@ -3,6 +3,7 @@ export interface Resource {
   id: number;
   topicNumber: string;
   title: string;
+  bookletUrl?: string;
 }
 
 export interface Topic {
@@ -102,7 +103,12 @@ export const resourcesByEducationLevel: Record<string, EducationLevelData> = {
     level: "Primary",
     topics: {
       writing: [
-        { id: 1, topicNumber: "Topic 1", title: "Letter Formation" },
+        {
+          id: 1,
+          topicNumber: "Topic 1",
+          title: "Letter Formation",
+          bookletUrl: "https://simplebooklet.com/primaryspellingtester",
+        },
         { id: 2, topicNumber: "Topic 2", title: "Simple Sentences" },
         { id: 3, topicNumber: "Topic 3", title: "Story Starters" },
         { id: 4, topicNumber: "Topic 4", title: "Handwriting Practice" },
