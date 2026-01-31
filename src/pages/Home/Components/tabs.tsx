@@ -34,7 +34,7 @@ export default function HomeTabs() {
         <div className="text-core-blue mb-2 font-bold md:text-xl md:mb-4">
           Explore topics in Primary:
         </div>
-        <Topics />
+        <Topics educationLevel="Primary" />
       </TabsContent>
       <TabsContent
         className="bg-pastel-pink p-5 rounded-b-xl rounded-tr-xl shadow-sm"
@@ -43,7 +43,7 @@ export default function HomeTabs() {
         <div className="text-core-blue mb-2 font-bold md:text-xl md:mb-4">
           Explore topics in Secondary:
         </div>
-        <Topics />
+        <Topics educationLevel="Secondary" />
       </TabsContent>
       <TabsContent
         className="bg-pastel-green p-5 rounded-b-xl rounded-tr-xl shadow-sm"
@@ -52,7 +52,7 @@ export default function HomeTabs() {
         <div className="text-core-blue mb-2 font-bold md:text-xl md:mb-4">
           Explore topics in Further Education/Higher Education:
         </div>
-        <Topics />
+        <Topics educationLevel="FE/HE" />
       </TabsContent>
     </Tabs>
   );

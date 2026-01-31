@@ -22,7 +22,7 @@ export default function HomePage() {
           </h1>
           <p className="text-core-blue md:text-xl">
             Your hub for exploring resources across Primary, Secondary, and
-            HE/FE.
+            Further Education/Higher Education.
           </p>
         </div>
       </div>
