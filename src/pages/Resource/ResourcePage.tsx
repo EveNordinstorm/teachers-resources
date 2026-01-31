@@ -66,20 +66,16 @@ export default function ResourcePage() {
       </div>
 
       {resource.bookletUrl && (
-        <div className="w-full relative">
+        <div className="w-full relative" style={{ height: "80vh", minHeight: "500px" }}>
           {isBookletLoading && (
-            <div
-              className="w-full bg-gray-100 flex items-center justify-center"
-              style={{ height: "80vh", minHeight: "500px" }}
-            >
+            <div className="absolute inset-0 bg-gray-100 flex items-center justify-center z-10">
               <p className="text-core-blue text-lg">Loading booklet...</p>
             </div>
           )}
           <iframe
             src={resource.bookletUrl}
             title={resource.title}
-            className={`w-full border-0 ${isBookletLoading ? "hidden" : ""}`}
-            style={{ height: "80vh", minHeight: "500px" }}
+            className="w-full h-full border-0"
             allowFullScreen
             onLoad={() => setIsBookletLoading(false)}
           />
