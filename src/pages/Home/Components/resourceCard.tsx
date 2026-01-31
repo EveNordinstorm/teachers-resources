@@ -44,14 +44,14 @@ export default function ResourceCard({
   };
 
   return (
-    <Card className="w-full max-w-sm rounded-none bg-white p-4">
-      <CardHeader className="p-0">
+    <Card className="w-full max-w-sm rounded-none bg-white p-4 flex flex-col h-full">
+      <CardHeader className="p-0 flex-1">
         <CardTitle className={textColor}>{topicNumber}</CardTitle>
         <CardDescription className="text-core-blue font-bold text-lg">
           {title}
         </CardDescription>
       </CardHeader>
-      <CardFooter className="p-0">
+      <CardFooter className="p-0 mt-auto">
         <Button
           onClick={handleClick}
           className={`w-full ${pastelColor} lg:text-lg ${textColor} font-bold rounded-none hover:cursor-pointer ${activeColor} hover:text-white`}
