@@ -1,4 +1,4 @@
-import logo from "../assets/BDA_Logo_Legacy_RGB.svg";
+import logo from "../../assets/BDA_Logo_Legacy_RGB.svg";
 
 export default function HomePage() {
   return (
