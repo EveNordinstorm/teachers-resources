@@ -4,6 +4,7 @@ import organisation from "../../../assets/Educators Icons_Organisation.svg";
 import reading from "../../../assets/Educators Icons_Reading.svg";
 import studyskills from "../../../assets/Educators Icons_Study skills.svg";
 import misc from "../../../assets/Educators Icons_Miscellaneous.svg";
+import ResourceCard from "./resourceCard";
 
 export default function Topics() {
   return (
@@ -96,10 +97,16 @@ export default function Topics() {
       >
         <div className="relative bg-dark-pink text-white text-sm rounded-xl p-6 mt-3">
           <div className="absolute left-[16.67%] md:left-[10%] -translate-x-1/2 -top-4 w-8 h-8 bg-dark-pink rotate-45 rounded-tl-lg"></div>
-          <div className="grid grid-cols-3 gap-3">
-            <div className="bg-white text-black">Card component</div>
-            <div className="bg-white text-black">Card component</div>
-            <div className="bg-white text-black">Card component</div>
+          <div className="text-white mb-2 font-bold md:text-xl md:mb-4">
+            Primary Writing
+          </div>
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-3">
+            <ResourceCard />
+            <ResourceCard />
+            <ResourceCard />
+            <ResourceCard />
+            <ResourceCard />
+            <ResourceCard />
           </div>
         </div>
       </TabsContent>
@@ -110,11 +117,6 @@ export default function Topics() {
       >
         <div className="relative bg-dark-blue text-white text-sm rounded-xl p-6 mt-3">
           <div className="absolute left-[50%] md:left-[30%] -translate-x-1/2 -top-4 w-8 h-8 bg-dark-blue rotate-45 rounded-tl-lg"></div>
-          <div className="grid grid-cols-3 gap-3">
-            <div className="bg-white text-black">Card component</div>
-            <div className="bg-white text-black">Card component</div>
-            <div className="bg-white text-black">Card component</div>
-          </div>
         </div>
       </TabsContent>
 
@@ -124,11 +126,6 @@ export default function Topics() {
       >
         <div className="relative bg-dark-green text-white text-sm rounded-xl p-6 mt-3">
           <div className="absolute left-[83.33%] md:left-[50%] -translate-x-1/2 -top-4 w-8 h-8 bg-dark-green rotate-45 rounded-tl-lg"></div>
-          <div className="grid grid-cols-3 gap-3">
-            <div className="bg-white text-black">Card component</div>
-            <div className="bg-white text-black">Card component</div>
-            <div className="bg-white text-black">Card component</div>
-          </div>
         </div>
       </TabsContent>
 
@@ -138,11 +135,6 @@ export default function Topics() {
       >
         <div className="relative bg-dark-gray text-white text-sm rounded-xl p-6 mt-3">
           <div className="absolute left-[16.67%] md:left-[70%] -translate-x-1/2 -top-4 w-8 h-8 bg-dark-gray rotate-45 rounded-tl-lg"></div>
-          <div className="grid grid-cols-3 gap-3">
-            <div className="bg-white text-black">Card component</div>
-            <div className="bg-white text-black">Card component</div>
-            <div className="bg-white text-black">Card component</div>
-          </div>
         </div>
       </TabsContent>
 
@@ -152,11 +144,6 @@ export default function Topics() {
       >
         <div className="relative bg-core-blue text-white text-sm rounded-xl p-6 mt-3">
           <div className="absolute left-[50%] md:left-[90%] -translate-x-1/2 -top-4 w-8 h-8 bg-core-blue rotate-45 rounded-tl-lg"></div>
-          <div className="grid grid-cols-3 gap-3">
-            <div className="bg-white text-black">Card component</div>
-            <div className="bg-white text-black">Card component</div>
-            <div className="bg-white text-black">Card component</div>
-          </div>
         </div>
       </TabsContent>
     </Tabs>

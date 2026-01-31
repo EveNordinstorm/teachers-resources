@@ -31,18 +31,27 @@ export default function HomeTabs() {
         className="bg-pastel-blue p-5 rounded-b-xl rounded-tr-xl shadow-sm"
         value="primary"
       >
+        <div className="text-core-blue mb-2 font-bold md:text-xl md:mb-4">
+          Explore topics in Primary:
+        </div>
         <Topics />
       </TabsContent>
       <TabsContent
         className="bg-pastel-pink p-5 rounded-b-xl rounded-tr-xl shadow-sm"
         value="secondary"
       >
+        <div className="text-core-blue mb-2 font-bold md:text-xl md:mb-4">
+          Explore topics in Secondary:
+        </div>
         <Topics />
       </TabsContent>
       <TabsContent
         className="bg-pastel-green p-5 rounded-b-xl rounded-tr-xl shadow-sm"
         value="fe/he"
       >
+        <div className="text-core-blue mb-2 font-bold md:text-xl md:mb-4">
+          Explore topics in Further Education/Higher Education:
+        </div>
         <Topics />
       </TabsContent>
     </Tabs>
