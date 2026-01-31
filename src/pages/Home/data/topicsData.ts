@@ -194,3 +194,28 @@ export const resourcesByEducationLevel: Record<string, EducationLevelData> = {
     },
   },
 };
+
+// Helper type for resource lookup result
+export interface ResourceLookupResult {
+  resource: Resource;
+  educationLevel: string;
+  topicLabel: string;
+}
+
+// Helper function to find a resource by ID
+export function getResourceById(id: number): ResourceLookupResult | null {
+  for (const [, levelData] of Object.entries(resourcesByEducationLevel)) {
+    for (const [topicKey, resources] of Object.entries(levelData.topics)) {
+      const resource = resources.find((r) => r.id === id);
+      if (resource) {
+        const topic = topics.find((t) => t.value === topicKey);
+        return {
+          resource,
+          educationLevel: levelData.level,
+          topicLabel: topic?.label || topicKey,
+        };
+      }
+    }
+  }
+  return null;
+}

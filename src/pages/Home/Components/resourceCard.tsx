@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,8 @@ export default function ResourceCard({
   pastelColor,
   activeColor,
 }: ResourceCardProps) {
+  const navigate = useNavigate();
+
   const textColorMap: Record<string, string> = {
     "bg-dark-pink": "text-dark-pink",
     "bg-dark-blue": "text-dark-blue",
@@ -37,8 +40,7 @@ export default function ResourceCard({
   const textColor = textColorMap[bgColor] || "text-dark-pink";
 
   const handleClick = () => {
-    // Navigate to resource by ID
-    window.location.href = `/resource/${id}`;
+    navigate(`/resource/${id}`);
   };
 
   return (
