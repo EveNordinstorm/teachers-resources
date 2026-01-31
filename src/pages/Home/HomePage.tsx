@@ -17,10 +17,10 @@ export default function HomePage() {
         />
 
         <div className="pt-6 order-2 sm:order-1">
-          <h1 className="font-bold text-core-blue text-3xl lg:text-4xl mb-3">
+          <h1 className="font-bold text-core-blue text-xl md:text-3xl lg:text-4xl mb-3">
             Teachers Resources
           </h1>
-          <p className="text-core-blue lg:text-xl">
+          <p className="text-core-blue md:text-xl">
             Your hub for exploring resources across Primary, Secondary, and
             HE/FE.
           </p>

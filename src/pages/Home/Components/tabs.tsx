@@ -1,25 +1,26 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Topics from "./topics";
 
 export default function HomeTabs() {
   return (
-    <Tabs defaultValue="primary" className="">
-      <TabsList className="p-0">
+    <Tabs defaultValue="primary">
+      <TabsList className="p-0 gap-2">
         <TabsTrigger
-          className="text-lg md:text-xl lg:text-2xl lg:font-2xl font-bold px-4 py-3 rounded-b-none rounded-t-xl bg-pastel-blue text-core-blue hover:cursor-pointer mr-2"
+          className="text-sm md:text-xl lg:text-2xl lg:font-2xl font-bold p-2 md:p-3 lg:px-8 rounded-b-none rounded-t-xl bg-pastel-blue text-core-blue"
           value="primary"
         >
           <div className="w-5 h-5 rounded-full bg-active-blue mr-1.5"></div>
           Primary
         </TabsTrigger>
         <TabsTrigger
-          className="text-lg md:text-xl lg:text-2xl lg:font-2xl font-bold px-4 py-3 rounded-b-none rounded-t-xl bg-pastel-pink text-core-blue hover:cursor-pointer mr-2"
+          className="text-sm md:text-xl lg:text-2xl lg:font-2xl font-bold p-2 md:p-3 lg:px-8 rounded-b-none rounded-t-xl bg-pastel-pink text-core-blue"
           value="secondary"
         >
           <div className="w-5 h-5 rounded-full bg-active-pink mr-1.5"></div>
           Secondary
         </TabsTrigger>
         <TabsTrigger
-          className="text-lg md:text-xl lg:text-2xl lg:font-2xl font-bold px-4 py-3 rounded-b-none rounded-t-xl bg-pastel-green text-core-blue hover:cursor-pointer mr-2"
+          className="text-sm md:text-xl lg:text-2xl lg:font-2xl font-bold p-2 md:p-3 lg:px-8 rounded-b-none rounded-t-xl bg-pastel-green text-core-blue"
           value="fe/he"
         >
           <div className="w-5 h-5 rounded-full bg-active-green mr-1.5"></div>
@@ -27,22 +28,22 @@ export default function HomeTabs() {
         </TabsTrigger>
       </TabsList>
       <TabsContent
-        className="bg-pastel-blue p-3 rounded-b-xl rounded-tr-xl shadow-sm z-10"
+        className="bg-pastel-blue p-5 rounded-b-xl rounded-tr-xl shadow-sm"
         value="primary"
       >
-        Primary
+        <Topics />
       </TabsContent>
       <TabsContent
-        className="bg-pastel-pink p-3 rounded-b-xl rounded-tr-xl shadow-sm z-10"
+        className="bg-pastel-pink p-5 rounded-b-xl rounded-tr-xl shadow-sm"
         value="secondary"
       >
-        Secondary
+        <Topics />
       </TabsContent>
       <TabsContent
-        className="bg-pastel-green p-3 rounded-b-xl rounded-tr-xl shadow-sm z-10"
+        className="bg-pastel-green p-5 rounded-b-xl rounded-tr-xl shadow-sm"
         value="fe/he"
       >
-        FE/HE
+        <Topics />
       </TabsContent>
     </Tabs>
   );
