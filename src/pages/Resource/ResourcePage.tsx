@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -8,6 +9,7 @@ import logo from "../../assets/BDA_Logo_Legacy_RGB.svg";
 export default function ResourcePage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [isBookletLoading, setIsBookletLoading] = useState(true);
 
   const resourceData = id ? getResourceById(Number(id)) : null;
 
@@ -64,13 +66,22 @@ export default function ResourcePage() {
       </div>
 
       {resource.bookletUrl && (
-        <div className="w-full">
+        <div className="w-full relative">
+          {isBookletLoading && (
+            <div
+              className="w-full bg-gray-100 flex items-center justify-center"
+              style={{ height: "80vh", minHeight: "500px" }}
+            >
+              <p className="text-core-blue text-lg">Loading booklet...</p>
+            </div>
+          )}
           <iframe
             src={resource.bookletUrl}
             title={resource.title}
-            className="w-full border-0"
+            className={`w-full border-0 ${isBookletLoading ? "hidden" : ""}`}
             style={{ height: "80vh", minHeight: "500px" }}
             allowFullScreen
+            onLoad={() => setIsBookletLoading(false)}
           />
         </div>
       )}
