@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { motion } from "motion/react";
 
 interface ResourceCardProps {
   id: number;
@@ -52,13 +53,30 @@ export default function ResourceCard({
         </CardDescription>
       </CardHeader>
       <CardFooter className="p-0 mt-auto">
-        <Button
-          onClick={handleClick}
-          className={`w-full ${pastelColor} lg:text-lg ${textColor} font-bold rounded-none hover:cursor-pointer ${activeColor} hover:text-white`}
+        <motion.div
+          className="w-full"
+          whileHover="hover"
+          initial="rest"
+          animate="rest"
         >
-          Read
-          <FontAwesomeIcon className="w-5 h-5" icon={faArrowRight} />
-        </Button>
+          <Button
+            onClick={handleClick}
+            className={`w-full ${pastelColor} lg:text-lg ${textColor} font-bold rounded-sm hover:cursor-pointer ${activeColor} hover:text-white transition-colors duration-200 ease-in-out`}
+          >
+            Read
+            <motion.span
+              variants={{
+                rest: { x: 0 },
+                hover: {
+                  x: [0, 10, 0],
+                  transition: { duration: 0.7, ease: "easeInOut" },
+                },
+              }}
+            >
+              <FontAwesomeIcon className="w-5 h-5" icon={faArrowRight} />
+            </motion.span>
+          </Button>
+        </motion.div>
       </CardFooter>
     </Card>
   );
