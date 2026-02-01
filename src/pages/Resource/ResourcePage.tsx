@@ -36,7 +36,7 @@ export default function ResourcePage() {
 
   if (!resourceData) {
     return (
-      <div>
+      <main>
         <motion.div
           className="inline-block"
           whileHover="hover"
@@ -64,14 +64,14 @@ export default function ResourcePage() {
         <div className="text-core-blue">
           <p className="font-bold text-xl">Resource not found</p>
         </div>
-      </div>
+      </main>
     );
   }
 
   const { resource, educationLevel, topicLabel } = resourceData;
 
   return (
-    <div>
+    <main>
       <div className="flex flex-col md:flex-row md:justify-between mb-6">
         <div className="order-2 md:order-1">
           <motion.div
@@ -112,7 +112,9 @@ export default function ResourcePage() {
         <img
           className="w-32 lg:w-52 self-end mb-5 md:mb-0 md:self-start order-1 md:order-2"
           src={logo}
-          alt="Logo"
+          alt="British Dyslexia Association Logo"
+          width={208}
+          height={208}
         />
       </div>
 
@@ -152,6 +154,6 @@ export default function ResourcePage() {
           </motion.button>
         )}
       </AnimatePresence>
-    </div>
+    </main>
   );
 }

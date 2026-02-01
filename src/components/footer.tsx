@@ -5,7 +5,7 @@ export default function Footer() {
         href="https://www.bdadyslexia.org.uk/"
         target="_blank"
         rel="noopener noreferrer"
-        className="font-bold text-active-blue underline text-lg mb-1 inline-block hover:text-core-blue"
+        className="font-bold text-core-blue underline text-lg mb-1 inline-block hover:text-active-blue"
       >
         bdadyslexia.org.uk
       </a>
