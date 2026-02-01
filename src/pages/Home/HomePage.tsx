@@ -3,7 +3,7 @@ import HomeTabs from "./Components/tabs";
 
 export default function HomePage() {
   return (
-    <div>
+    <main>
       <div className="flex flex-col md:flex-row md:justify-between mb-10">
         <div className="pt-6 order-2 md:order-1">
           <h1 className="font-bold text-core-blue text-xl md:text-3xl lg:text-4xl mb-3">
@@ -18,11 +18,13 @@ export default function HomePage() {
         <img
           className="w-32 lg:w-52 self-end order-1 md:order-2"
           src={logo}
-          alt="Logo"
+          alt="British Dyslexia Association Logo"
+          width={208}
+          height={208}
         />
       </div>
 
       <HomeTabs />
-    </div>
+    </main>
   );
 }

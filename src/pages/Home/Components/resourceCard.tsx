@@ -61,10 +61,11 @@ export default function ResourceCard({
         >
           <Button
             onClick={handleClick}
+            aria-label={`Read ${title}`}
             className={`w-full ${pastelColor} lg:text-lg ${textColor} font-bold rounded-sm hover:cursor-pointer ${activeColor} hover:text-white transition-colors duration-200 ease-in-out`}
           >
             Read
-            <motion.span
+            <motion.span aria-hidden="true"
               variants={{
                 rest: { x: 0 },
                 hover: {

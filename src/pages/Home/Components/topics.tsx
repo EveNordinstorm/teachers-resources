@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import {
   topics,
   resourcesByEducationLevel,
@@ -27,7 +27,8 @@ function TopicTrigger({ topic, isLastTwo }: TopicTriggerProps) {
         <img
           className="w-full h-full object-contain max-w-[60px] sm:max-w-[90px] md:max-w-[96px] lg:max-w-[150px]"
           src={topic.icon}
-          alt={topic.label}
+          alt=""
+          aria-hidden="true"
         />
       </div>
       <div className="py-1 sm:py-2 text-center font-bold text-sm sm:text-base md:text-base lg:text-lg">
@@ -49,7 +50,7 @@ export default function Topics({ educationLevel }: TopicsProps) {
 
   return (
     <Tabs value={activeTab} onValueChange={setActiveTab}>
-      <TabsList className="p-0 grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-3 w-full">
+      <TabsList className="p-0 grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-3 w-full" aria-label="Resource topics">
         {topics.map((topic, index) => (
           <TopicTrigger
             key={topic.value}
@@ -58,6 +59,11 @@ export default function Topics({ educationLevel }: TopicsProps) {
           />
         ))}
       </TabsList>
+
+      {/* Hidden TabsContent elements for valid aria-controls references */}
+      {topics.map((topic) => (
+        <TabsContent key={topic.value} value={topic.value} className="sr-only" />
+      ))}
 
       <div className="bg-white p-3 rounded-b-xl shadow-sm">
         <div
