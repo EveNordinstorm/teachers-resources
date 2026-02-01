@@ -1,6 +1,12 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { topics, resourcesByEducationLevel, type Topic } from "../data/topicsData";
+import { useState } from "react";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  topics,
+  resourcesByEducationLevel,
+  type Topic,
+} from "../data/topicsData";
 import ResourceCard from "./resourceCard";
+import { motion, AnimatePresence } from "motion/react";
 
 interface TopicTriggerProps {
   topic: Topic;
@@ -31,55 +37,18 @@ function TopicTrigger({ topic, isLastTwo }: TopicTriggerProps) {
   );
 }
 
-interface TopicContentProps {
-  topic: Topic;
-  educationLevel: string;
-}
-
-function TopicContent({ topic, educationLevel }: TopicContentProps) {
-  const resources = resourcesByEducationLevel[educationLevel]?.topics[topic.value] || [];
-
-  return (
-    <TabsContent
-      value={topic.value}
-      className="bg-white p-3 rounded-b-xl shadow-sm relative"
-    >
-      <div
-        className={`relative ${topic.bgColor} text-white text-sm rounded-xl p-6 mt-3`}
-      >
-        <div
-          className={`absolute ${topic.arrowPosition.mobile} ${topic.arrowPosition.desktop} -translate-x-1/2 -top-4 w-8 h-8 ${topic.bgColor} rotate-45 rounded-tl-lg`}
-        ></div>
-        <div className="text-white mb-2 font-bold md:text-xl md:mb-4">
-          {educationLevel} {topic.label}
-        </div>
-        {resources.length > 0 && (
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {resources.map((resource) => (
-              <ResourceCard
-                key={resource.id}
-                id={resource.id}
-                topicNumber={resource.topicNumber}
-                title={resource.title}
-                bgColor={topic.bgColor}
-                pastelColor={topic.pastelColor}
-                activeColor={topic.activeColor}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-    </TabsContent>
-  );
-}
-
 interface TopicsProps {
   educationLevel: string;
 }
 
 export default function Topics({ educationLevel }: TopicsProps) {
+  const [activeTab, setActiveTab] = useState("writing");
+  const activeTopic = topics.find((t) => t.value === activeTab)!;
+  const resources =
+    resourcesByEducationLevel[educationLevel]?.topics[activeTab] || [];
+
   return (
-    <Tabs defaultValue="writing">
+    <Tabs value={activeTab} onValueChange={setActiveTab}>
       <TabsList className="p-0 grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-3 w-full">
         {topics.map((topic, index) => (
           <TopicTrigger
@@ -90,13 +59,52 @@ export default function Topics({ educationLevel }: TopicsProps) {
         ))}
       </TabsList>
 
-      {topics.map((topic) => (
-        <TopicContent
-          key={topic.value}
-          topic={topic}
-          educationLevel={educationLevel}
-        />
-      ))}
+      <div className="bg-white p-3 rounded-b-xl shadow-sm">
+        <div
+          className={`relative ${activeTopic.bgColor} text-white text-sm rounded-xl p-6 mt-3 transition-colors duration-300 ease-out`}
+        >
+          {topics.map((topic) => (
+            <motion.div
+              key={topic.value}
+              initial={false}
+              animate={{
+                scale: activeTab === topic.value ? 1 : 0,
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className={`absolute ${topic.arrowPosition.mobile} ${topic.arrowPosition.desktop} -translate-x-1/2 -top-4 w-8 h-8 ${activeTopic.bgColor} rotate-45 rounded-tl-lg origin-center transition-colors duration-300 ease-out`}
+            />
+          ))}
+
+          <div className="text-white mb-2 font-bold md:text-xl md:mb-4">
+            {educationLevel} {activeTopic.label}
+          </div>
+
+          <AnimatePresence mode="wait">
+            {resources.length > 0 && (
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="grid md:grid-cols-3 lg:grid-cols-4 gap-3"
+              >
+                {resources.map((resource) => (
+                  <ResourceCard
+                    key={resource.id}
+                    id={resource.id}
+                    topicNumber={resource.topicNumber}
+                    title={resource.title}
+                    bgColor={activeTopic.bgColor}
+                    pastelColor={activeTopic.pastelColor}
+                    activeColor={activeTopic.activeColor}
+                  />
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
     </Tabs>
   );
 }
