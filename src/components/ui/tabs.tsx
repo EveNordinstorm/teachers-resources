@@ -44,7 +44,7 @@ function TabsTrigger({
         "font-medium whitespace-nowrap",
         "transition-colors",
         "disabled:pointer-events-none disabled:opacity-50",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-core-blue focus-visible:ring-offset-2",
         className,
       )}
       {...props}
@@ -59,6 +59,7 @@ function TabsContent({
   return (
     <TabsPrimitive.Content
       data-slot="tabs-content"
+      tabIndex={-1}
       className={cn("flex-1 outline-none", className)}
       {...props}
     />

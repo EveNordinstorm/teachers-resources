@@ -50,7 +50,7 @@ export default function Topics({ educationLevel }: TopicsProps) {
 
   return (
     <Tabs value={activeTab} onValueChange={setActiveTab}>
-      <TabsList className="p-0 grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-3 w-full">
+      <TabsList className="p-0 grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-3 w-full" aria-label="Resource topics">
         {topics.map((topic, index) => (
           <TopicTrigger
             key={topic.value}

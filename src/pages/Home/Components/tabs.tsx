@@ -4,26 +4,26 @@ import Topics from "./topics";
 export default function HomeTabs() {
   return (
     <Tabs defaultValue="primary">
-      <TabsList className="p-0 gap-2">
+      <TabsList className="p-0 gap-2" aria-label="Education levels">
         <TabsTrigger
           className="text-sm md:text-xl lg:text-2xl lg:font-2xl font-bold p-2 md:p-3 lg:px-8 rounded-b-none rounded-t-xl bg-pastel-blue text-core-blue"
           value="primary"
         >
-          <div className="w-5 h-5 rounded-full bg-active-blue mr-1.5"></div>
+          <div className="w-5 h-5 rounded-full bg-active-blue mr-1.5" aria-hidden="true"></div>
           Primary
         </TabsTrigger>
         <TabsTrigger
           className="text-sm md:text-xl lg:text-2xl lg:font-2xl font-bold p-2 md:p-3 lg:px-8 rounded-b-none rounded-t-xl bg-pastel-pink text-core-blue"
           value="secondary"
         >
-          <div className="w-5 h-5 rounded-full bg-active-pink mr-1.5"></div>
+          <div className="w-5 h-5 rounded-full bg-active-pink mr-1.5" aria-hidden="true"></div>
           Secondary
         </TabsTrigger>
         <TabsTrigger
           className="text-sm md:text-xl lg:text-2xl lg:font-2xl font-bold p-2 md:p-3 lg:px-8 rounded-b-none rounded-t-xl bg-pastel-green text-core-blue"
           value="fe/he"
         >
-          <div className="w-5 h-5 rounded-full bg-active-green mr-1.5"></div>
+          <div className="w-5 h-5 rounded-full bg-active-green mr-1.5" aria-hidden="true"></div>
           FE/HE
         </TabsTrigger>
       </TabsList>
