@@ -83,22 +83,44 @@ export default function Topics({ educationLevel }: TopicsProps) {
             {resources.length > 0 && (
               <motion.div
                 key={activeTab}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.08,
+                    },
+                  },
+                  exit: {
+                    opacity: 0,
+                    transition: { duration: 0.15 },
+                  },
+                }}
                 className="grid md:grid-cols-3 lg:grid-cols-4 gap-3"
               >
                 {resources.map((resource) => (
-                  <ResourceCard
+                  <motion.div
                     key={resource.id}
-                    id={resource.id}
-                    topicNumber={resource.topicNumber}
-                    title={resource.title}
-                    bgColor={activeTopic.bgColor}
-                    pastelColor={activeTopic.pastelColor}
-                    activeColor={activeTopic.activeColor}
-                  />
+                    variants={{
+                      hidden: { opacity: 0, y: 15 },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: { duration: 0.5, ease: "easeOut" },
+                      },
+                    }}
+                  >
+                    <ResourceCard
+                      id={resource.id}
+                      topicNumber={resource.topicNumber}
+                      title={resource.title}
+                      bgColor={activeTopic.bgColor}
+                      pastelColor={activeTopic.pastelColor}
+                      activeColor={activeTopic.activeColor}
+                    />
+                  </motion.div>
                 ))}
               </motion.div>
             )}
