@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="text-center pt-10">
+    <div className="text-center pt-15">
       <a
         href="https://www.bdadyslexia.org.uk/"
         target="_blank"
@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="text-xs text-core-blue">
         © British Dyslexia Association
       </div>
-      <div className="text-xs text-core-blue">
+      <div className="text-xs text-core-blue pb-5">
         British Dyslexia Association is a registered charity in England and
         Wales (289243). Registered in England and Wales as a company limited by
         guarantee (1830587). Registered office: 1, Friar Street, Reading,

@@ -1,22 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
 import { getResourceById } from "../Home/data/topicsData";
 import logo from "../../assets/BDA_Logo_Legacy_RGB.svg";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function ResourcePage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [isBookletLoading, setIsBookletLoading] = useState(true);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const resourceData = id ? getResourceById(Number(id)) : null;
 
   const handleBack = () => {
     navigate("/");
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 150);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   if (!resourceData) {
     return (
@@ -119,6 +135,23 @@ export default function ResourcePage() {
           />
         </div>
       )}
+
+      {/* Scroll to top button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+            onClick={scrollToTop}
+            className="fixed bottom-6 right-6 bg-core-blue hover:bg-active-blue text-white p-2 rounded-full shadow-lg hover:cursor-pointer transition-colors duration-200 ease-in-out z-50"
+            aria-label="Scroll to top"
+          >
+            <FontAwesomeIcon className="w-5 h-5" icon={faArrowUp} />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
