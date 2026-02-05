@@ -106,7 +106,7 @@ export const resourcesByEducationLevel: Record<string, EducationLevelData> = {
         {
           id: 1,
           topicNumber: "Topic 1",
-          title: "Letter Formation",
+          title: "Spelling Tester",
           bookletUrl: "https://simplebooklet.com/primaryspellingtester",
         },
         { id: 2, topicNumber: "Topic 2", title: "Simple Sentences" },
